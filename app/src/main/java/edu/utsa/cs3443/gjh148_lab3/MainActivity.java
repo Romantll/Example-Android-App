@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity{
     Button btnEnterprise, btnVoyager, btnDefiant;
     //naming button
 
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -21,7 +21,31 @@ public class MainActivity extends AppCompatActivity{
         btnVoyager = findViewByID(R.id.btnVoyager);
         btnDefiant = findViewByID(R.id.btnDefiant);
 
+        //Button listeners
+        btnEnterprise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openStarshipScreen("NCC-1701");
+            }
+        });
 
+        btnEnterprise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openStarshipScreen("NCC-74656");
+            }
+        });
 
+        btnDefiant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openStarshipScreen("NX-74205");
+            }
+        });
+    }
+    private void openStarshipScreen(String registry) {
+        Intent intent = new Intent(MainActivity.this, StarshipActivity.class);
+        intent.putExtra("registry", registry);
+        startActivity(intent);
     }
 }
