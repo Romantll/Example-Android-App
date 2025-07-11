@@ -17,14 +17,17 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Assigning button variable using ID defined in activity_main.xml
         btnEnterprise = findViewByID(R.id.btnEnterprise);
         btnVoyager = findViewByID(R.id.btnVoyager);
         btnDefiant = findViewByID(R.id.btnDefiant);
 
-        //Button listeners
+        //Button listener
+        //Defines what the button does
         btnEnterprise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Opens starship screen
                 openStarshipScreen("NCC-1701");
             }
         });

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ExampleAndroidApp"
         tools:targetApi="31">
         <activity
+            android:name="edu.utsa.cs3443.gjh148_lab3.StarshipActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
