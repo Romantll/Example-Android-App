@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         //Assigning button variable using ID defined in activity_main.xml
-        btnEnterprise = findViewByID(R.id.btnEnterprise);
-        btnVoyager = findViewByID(R.id.btnVoyager);
-        btnDefiant = findViewByID(R.id.btnDefiant);
+        btnEnterprise = findViewById(R.id.btnEnterprise);
+        btnVoyager = findViewById(R.id.btnVoyager);
+        btnDefiant = findViewById(R.id.btnDefiant);
 
         //Button listener
         //Defines what the button does

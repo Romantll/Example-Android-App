@@ -14,7 +14,7 @@
             android:id="@+id/logoImageView"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@drawable/ufp_logo"
+            android:src="@drawable/spock"
             android:contentDescription="@string/app_logo"
             android:layout_marginBottom="24dp"/>
 

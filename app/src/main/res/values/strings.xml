@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">gjh149_lab3</string>
+    <string name="app_name">gjh148_lab3</string>
     <string name="app_logo">App Logo</string>
     <string name="loading_text">Loading…</string>
     <string name="uss_enterprise">USS Enterprise (NCC-1701)</string>
     <string name="uss_voyager">USS Voyager (NCC-74656)</string>
     <string name="uss_defiant">USS Defiant (NX-74205)</string>
+    <string name="error_loading">Error loading data.</string>
+    <string name="starship_not_found">Starship not found.</string>
 </resources>

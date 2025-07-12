@@ -7,7 +7,7 @@
     android:padding="24dp">
 
     <TextView
-        android:id="@id/starshipInfo"
+        android:id="@+id/starshipInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/loading_text"
