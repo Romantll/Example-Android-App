@@ -4,17 +4,19 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:padding="16dp"
+        android:gravity="center_horizontal"
+        tools:context=".MainActivity">
 
         <ImageView
             android:id="@+id/logoImageView"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@drawable/spock"
+            android:src="@drawable/starfleet"
             android:contentDescription="@string/app_logo"
             android:layout_marginBottom="24dp"/>
 
@@ -23,6 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/uss_enterprise"
+            android:background="@drawable/rounded_button"
+            android:textColor="@android:color/white"
             android:layout_marginBottom="12dp" />
 
         <Button
@@ -30,12 +34,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/uss_voyager"
+            android:background="@drawable/rounded_button"
+            android:textColor="@android:color/white"
             android:layout_marginBottom="12dp" />
 
         <Button
             android:id="@+id/btnDefiant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:textColor="@android:color/white"
             android:text="@string/uss_defiant" />
     </LinearLayout>
 </ScrollView>
