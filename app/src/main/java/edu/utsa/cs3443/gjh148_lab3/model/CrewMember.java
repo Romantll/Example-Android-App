@@ -30,6 +30,8 @@ public class CrewMember {
 		return rank;
 	}
 
+	public String getImageName(){return fullName.toLowerCase().split(" ")[0];}
+
 	public String getSpecies() {
 		return species;
 	}

@@ -1,11 +1,15 @@
 package edu.utsa.cs3443.gjh148_lab3;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.example_android_app.R;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.widget.Toast;
+
 
 import java.io.IOException;
 
@@ -20,7 +24,8 @@ public class StarshipActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starship);
 
-        TextView starshipInfoText = findViewById(R.id.starshipInfo);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Get registry from Intent
         String registry = getIntent().getStringExtra("registry");
@@ -34,24 +39,15 @@ public class StarshipActivity extends AppCompatActivity {
             Starship starship = fleet.getStarshipByRegistry(registry);
 
             if (starship != null) {
-                // Build display text
-                StringBuilder sb = new StringBuilder();
-                sb.append("Starship: ").append(starship.getName()).append("\n");
-                sb.append("Registry: ").append(starship.getRegistry()).append("\n");
-                sb.append("Class: ").append(starship.getShipClass()).append("\n\n");
-
-                sb.append("Crew Members:\n\n");
-                for (CrewMember cm : starship.getCrew()) {
-                    sb.append(cm.toString()).append("\n");
-                }
-
-                starshipInfoText.setText(sb.toString());
+                CrewAdapter adapter = new CrewAdapter(this, starship.getCrew());
+                recyclerView.setAdapter(adapter);
             } else {
-                starshipInfoText.setText(R.string.starship_not_found);
+                Toast.makeText(this, "Starship not found", Toast.LENGTH_SHORT).show();
             }
 
+
         } catch (IOException e) {
-            starshipInfoText.setText(R.string.error_loading);
+            Toast.makeText(this, R.string.error_loading, Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }

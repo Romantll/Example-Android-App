@@ -32,47 +32,46 @@ public class Fleet {
     }
 
     public void loadFromAssets(Context context) throws IOException {
-        // Load fleet.csv
-        InputStream is = context.getAssets().open("fleet.csv");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        // Step 1: Load starships from fleet.csv
+        InputStream fleetInput = context.getAssets().open("fleet.csv");
+        BufferedReader fleetReader = new BufferedReader(new InputStreamReader(fleetInput));
         String line;
 
-        while ((line = reader.readLine()) != null) {
+        while ((line = fleetReader.readLine()) != null) {
             String[] parts = line.split(",");
             if (parts.length >= 3) {
                 String name = parts[0].trim();
                 String registry = parts[1].trim();
                 String shipClass = parts[2].trim();
+
                 Starship ship = new Starship(name, registry, shipClass);
                 addStarship(ship);
             }
         }
-        reader.close();
+        fleetReader.close();
 
-        // Load personnel.csv
-        is = context.getAssets().open("personnel.csv");
-        reader = new BufferedReader(new InputStreamReader(is));
+        InputStream personnelInput = context.getAssets().open("personnel.csv");
+        BufferedReader personnelReader = new BufferedReader(new InputStreamReader(personnelInput));
 
-        while ((line = reader.readLine()) != null) {
+        while ((line = personnelReader.readLine()) != null) {
             String[] parts = line.split(",");
             if (parts.length >= 5) {
-                String fullName = parts[0].trim();
+                String name = parts[0].trim();
                 String position = parts[1].trim();
                 String rank = parts[2].trim();
                 String registry = parts[3].trim();
                 String species = parts[4].trim();
 
-                CrewMember cm = new CrewMember(fullName, position, rank, species, registry);
+                CrewMember cm = new CrewMember(name, position, rank, species, registry);
 
-                // Assign to correct ship
-                for (Starship ship : starshipGroup) {
-                    if (ship.getRegistry().equals(registry)) {
-                        ship.addCrewMember(cm);
-                        break;
-                    }
+                // Lookup correct ship by registry and assign the crew member
+                Starship ship = getStarshipByRegistry(registry);
+                if (ship != null) {
+                    ship.addCrewMember(cm);
                 }
             }
         }
-        reader.close();
+        personnelReader.close();
     }
+
 }

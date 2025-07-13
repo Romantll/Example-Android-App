@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 //Opens starship screen
-                openStarshipScreen("NCC-1701");
+                openStarshipScreen("NCC-1701-A");
             }
         });
 
-        btnEnterprise.setOnClickListener(new View.OnClickListener() {
+        btnVoyager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openStarshipScreen("NCC-74656");

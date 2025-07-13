@@ -7,4 +7,6 @@
     <string name="uss_defiant">USS Defiant \n(NX-74205)</string>
     <string name="error_loading">Error loading data.</string>
     <string name="starship_not_found">Starship not found.</string>
+    <string name="pavel_checkov">Ensign Pavel Chekov</string>
+    <string name="navigator">Navigator</string>
 </resources>
